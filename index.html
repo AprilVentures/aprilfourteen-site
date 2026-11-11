@@ -1,0 +1,734 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Aprilfourteen: apps for Shopify shops</title>
+<meta name="description" content="Aprilfourteen is a small, independent studio building Shopify apps for the jobs shop owners still do by hand. Makers of Holdback and Tickbook.">
+<link rel="canonical" href="https://aprilfourteen.co.uk/">
+<meta name="theme-color" content="#04050a">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aprilfourteen">
+<meta property="og:title" content="Aprilfourteen: apps for Shopify shops">
+<meta property="og:description" content="Aprilfourteen is a small, independent studio building Shopify apps for the jobs shop owners still do by hand. Makers of Holdback and Tickbook.">
+<meta property="og:url" content="https://aprilfourteen.co.uk/">
+<meta property="og:image" content="https://aprilfourteen.co.uk/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script>if(location.protocol==="http:"&&/(^|\.)aprilfourteen\.co\.uk$/.test(location.hostname)){location.replace("https://aprilfourteen.co.uk"+location.pathname+location.search+location.hash)}</script>
+<style>html{background:#04050a}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: deep space. A live starfield sits behind everything; the hero is a small solar
+   system with Aprilfourteen at the centre and each app in its own orbit. Sections read as
+   mission-control panels. One typeface, a mono for telemetry labels. Single dark look by choice. */
+:root{
+  color-scheme:dark;
+  --space:#04050a; --space-2:#0a0c14; --panel:#0c0f1a; --hair:#1e2334; --hair-2:#2b3350;
+  --fg:#eef1f8; --muted:#8d95ab; --dim:#5b6278;
+  --hb:#3ddc91; --tb:#3fd6c4; --halo:#7c8cff; --tb-navy:#0b1f38; --tb-navy-2:#12294a; --tb-rule:#1e3a63; --paper:#f6f8fb; --ink:#0b1f38; --ink-dim:#5d6b7e; --ink-hair:#d3dae4;
+  --sans:"Geist","Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.2,.8,.2,1);
+  --wrap:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--space);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+a{color:inherit}
+#sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.nebula{position:fixed;inset:0;z-index:0;pointer-events:none;background:
+  radial-gradient(60% 50% at 78% 12%,rgba(124,140,255,.16),transparent 70%),
+  radial-gradient(50% 40% at 10% 70%,rgba(63,214,196,.09),transparent 70%),
+  radial-gradient(40% 35% at 60% 95%,rgba(61,220,145,.07),transparent 70%)}
+header,main,footer{position:relative;z-index:1}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:12.5px;letter-spacing:.04em}
+:focus-visible{outline:2px solid var(--fg);outline-offset:3px;border-radius:4px}
+
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(4,5,10,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--hair)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--space)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;letter-spacing:-.01em}
+.tile{width:28px;height:28px;border-radius:8px;background:var(--fg);color:var(--space);display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:500;box-shadow:0 0 18px rgba(124,140,255,.55)}
+nav{display:flex;gap:22px}
+nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+nav a:hover{color:var(--fg)}
+nav a b{font-weight:400;color:var(--dim);margin-right:6px}
+@media (max-width:640px){nav a b{display:none} nav{gap:12px} nav a{font-size:11.5px} .brand{font-size:15px}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(16px,4vw,48px);align-items:center;padding-block:clamp(40px,7vw,96px) clamp(28px,5vw,64px)}
+.now{display:inline-flex;align-items:center;gap:10px;color:var(--muted);margin-bottom:clamp(20px,3vw,32px);border:1px solid var(--hair);border-radius:999px;padding:7px 14px;background:rgba(12,15,26,.6)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--hb);box-shadow:0 0 0 0 rgba(61,220,145,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px transparent}100%{box-shadow:0 0 0 0 transparent}}
+h1{font-size:clamp(40px,4.8vw,66px);line-height:.96;letter-spacing:-.045em;font-weight:600;margin:0}
+h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+h1 .ln>span{display:block;animation:rise 1s var(--ease) both}
+h1 .ln:nth-child(2)>span{animation-delay:.1s}
+h1 .ln:nth-child(3)>span{animation-delay:.2s}
+h1 .q{background:linear-gradient(100deg,#fff 0%,#b9c2ff 38%,var(--tb) 72%,var(--hb) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:220% 100%;animation:rise 1s var(--ease) .2s both,sheen 9s linear infinite}
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+@keyframes sheen{to{background-position:-220% 0}}
+.lede{font-size:clamp(18px,1.9vw,22px);line-height:1.45;max-width:36ch;margin:clamp(22px,3vw,36px) 0 0}
+.lede span{color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;border-radius:999px;padding:12px 18px;font-weight:500;transition:transform .3s var(--ease),box-shadow .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn.solid{background:var(--fg);color:var(--space);box-shadow:0 0 0 rgba(124,140,255,0)}
+.btn.solid:hover{box-shadow:0 0 34px rgba(124,140,255,.55)}
+.btn.ghost{border:1px solid var(--hair-2);color:var(--fg);background:rgba(12,15,26,.5)}
+
+/* the system */
+.system{position:relative;width:min(100%,560px);aspect-ratio:1/1;margin-inline:auto;max-width:100%}
+.system svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.ring{fill:none;stroke:var(--hair-2);stroke-width:.25}
+.ring.dash{stroke-dasharray:.8 1.6;stroke:var(--dim)}
+.core{position:absolute;left:50%;top:50%;width:15%;aspect-ratio:1/1;transform:translate(-50%,-50%);border-radius:28%;background:linear-gradient(145deg,#ffffff,#c9d0ff);color:var(--space);display:grid;place-items:center;font-family:var(--mono);font-weight:500;font-size:clamp(18px,3.4vw,30px);z-index:5;box-shadow:0 0 50px rgba(124,140,255,.75),0 0 140px rgba(124,140,255,.35)}
+.core::before,.core::after{content:"";position:absolute;inset:-18%;border-radius:30%;border:1px solid rgba(124,140,255,.5);animation:ping 3.6s ease-out infinite}
+.core::after{animation-delay:1.8s}
+@keyframes ping{from{transform:scale(.85);opacity:.9}to{transform:scale(2.3);opacity:0}}
+.planet{position:absolute;left:0;top:0;display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;will-change:transform;transform:translate(-50%,-50%)}
+.planet i{display:block;width:clamp(22px,4.2vw,34px);aspect-ratio:1/1;border-radius:50%}
+.planet.hb i{background:radial-gradient(circle at 32% 30%,#b8ffe0,var(--hb) 45%,#0b6a43 100%);box-shadow:0 0 26px rgba(61,220,145,.7)}
+.planet.tb i{background:radial-gradient(circle at 32% 30%,#c9fff7,var(--tb) 45%,#0d5f72 100%);box-shadow:0 0 26px rgba(63,214,196,.7)}
+.planet.idea i{background:transparent;border:1.5px dashed var(--muted);width:clamp(16px,3vw,24px)}
+.planet span{white-space:nowrap;text-align:center;line-height:1.25}
+.planet b{display:block;font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:-.01em}
+.planet small{color:var(--muted);font-size:11px}
+.planet:hover b{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:900px){.hero{grid-template-columns:1fr}.system{width:min(100%,420px)}}
+
+/* telemetry strip */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--hair);border-radius:16px;background:rgba(12,15,26,.66);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);overflow:hidden}
+.stat{padding:22px 24px;border-right:1px solid var(--hair)}
+.stat:last-child{border-right:0}
+.stat em{font-style:normal;color:var(--dim);display:block;margin-bottom:10px}
+.stat b{display:block;font-size:clamp(34px,5vw,58px);font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{display:block;color:var(--muted);margin-top:8px;max-width:26ch;font-size:15px}
+@media (max-width:700px){.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--hair)}.stat:last-child{border-bottom:0}}
+
+/* sections */
+section{padding-block:clamp(56px,8vw,112px)}
+.eyebrow{color:var(--muted);text-transform:uppercase;letter-spacing:.14em;font-family:var(--mono);font-size:12px;margin:0 0 18px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--hair-2)}
+h2{font-size:clamp(32px,5.2vw,64px);line-height:1;letter-spacing:-.04em;font-weight:600;margin:0;text-wrap:balance;max-width:16ch}
+.sub{color:var(--muted);font-size:clamp(17px,1.7vw,20px);max-width:46ch;margin:20px 0 0}
+
+/* app panels */
+.apps{display:grid;gap:24px;margin-top:clamp(32px,4vw,56px)}
+.app{--mx:50%;--my:50%;position:relative;border-radius:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:470px;isolation:isolate}
+.app::before{content:"";position:absolute;inset:-1px;border-radius:25px;z-index:-2;background:conic-gradient(from var(--a,0deg),transparent 0 62%,var(--glow) 78%,transparent 92%);animation:orbit 7s linear infinite}
+.app::after{content:"";position:absolute;inset:0;border-radius:24px;z-index:-1;background:radial-gradient(420px circle at var(--mx) var(--my),var(--spot),transparent 60%),var(--ground)}
+@property --a{syntax:"<angle>";inherits:false;initial-value:0deg}
+@keyframes orbit{to{--a:360deg}}
+.app .body{padding:clamp(26px,3.6vw,48px);display:flex;flex-direction:column;gap:18px;min-width:0}
+.app .stage{padding:clamp(22px,3.2vw,44px);display:grid;place-items:center;min-width:0}
+.app h3{font-size:clamp(36px,5vw,62px);line-height:1;letter-spacing:-.045em;font-weight:600;margin:0}
+.app p{margin:0;max-width:40ch}
+.app ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:9px;color:var(--muted)}
+.app li{padding-left:20px;position:relative}
+.app li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:currentColor;opacity:.6}
+.app .foot{margin-top:auto;padding-top:10px}
+.tag{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--hair-2);border-radius:999px;padding:5px 11px;white-space:nowrap;align-self:flex-start;background:rgba(4,5,10,.4)}
+.tag i{width:6px;height:6px;border-radius:50%;background:var(--muted)}
+.hb{--glow:var(--hb);--spot:rgba(61,220,145,.10);--ground:#07080b}
+.hb .tag i{background:var(--hb);box-shadow:0 0 10px var(--hb)}
+.tb{--glow:var(--tb);--spot:rgba(63,214,196,.14);--ground:linear-gradient(180deg,var(--tb-navy-2),var(--tb-navy))}
+.tb .tag i{background:var(--tb)}
+.tb .stage{background:repeating-linear-gradient(to bottom,transparent 0 31px,var(--tb-rule) 31px 32px);border-radius:24px 0 0 24px}
+.tb ul{color:#a9bbd3}
+@media (max-width:860px){.app{grid-template-columns:1fr;min-height:0}.tb .stage{border-radius:24px 24px 0 0}}
+
+/* Holdback scene */
+.card{width:min(100%,360px);background:#111114;border:1px solid #2a2a31;border-radius:18px;padding:22px;box-shadow:0 30px 70px -30px #000,0 0 60px -20px rgba(61,220,145,.25);font-size:15px;animation:float 7s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.card .k{color:#8f8f9b;display:flex;justify-content:space-between;gap:10px}
+.card .amt{font-size:46px;font-weight:600;letter-spacing:-.04em;line-height:1.05;margin:10px 0 2px;font-variant-numeric:tabular-nums}
+.card .note{color:#8f8f9b}
+.steps{margin:18px 0 0;padding:16px 0 0;border-top:1px solid #2a2a31;display:grid;gap:12px}
+.step{display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:10px;align-items:start;opacity:.3;transition:opacity .5s}
+.step i{width:10px;height:10px;border-radius:50%;border:1.5px solid #8f8f9b;margin-top:6px;transition:background .4s,border-color .4s,box-shadow .4s}
+.step b{font-weight:500}
+.step small{display:block;color:#8f8f9b;font-size:13px}
+.step .v{font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:13px;padding-top:3px}
+.step.on{opacity:1}
+.step.on i{background:#fafafb;border-color:#fafafb}
+.step.good.on i{background:var(--hb);border-color:var(--hb);box-shadow:0 0 12px var(--hb)}
+.step.good.on .v{color:var(--hb)}
+
+/* Tickbook scene */
+.book{width:min(100%,380px);background:var(--paper);color:var(--ink);border-radius:6px 16px 16px 6px;border-left:6px solid #06142a;padding:20px 20px 18px;box-shadow:0 30px 60px -30px #000,0 0 70px -24px rgba(63,214,196,.45);font-size:15px;animation:float 8s ease-in-out -2s infinite}
+.book .head{display:flex;justify-content:space-between;gap:10px;align-items:baseline;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.book .head b{font-weight:600}
+.book .head span{color:var(--ink-dim);font-family:var(--mono);font-size:12px}
+.entry{display:grid;grid-template-columns:42px minmax(0,1fr) auto;gap:10px;padding:11px 0;border-bottom:1px solid var(--ink-hair);opacity:.22;transform:translateY(4px);transition:opacity .5s,transform .5s var(--ease)}
+.entry span:first-child{color:var(--ink-dim);font-family:var(--mono);font-size:12px;padding-top:3px}
+.entry .v{font-family:var(--mono);font-size:13px;font-variant-numeric:tabular-nums;padding-top:2px}
+.entry.on{opacity:1;transform:none}
+.bal{display:flex;gap:8px;align-items:center;padding-top:14px}
+.bal span{color:var(--ink-dim);font-size:13px;max-width:11ch;line-height:1.3}
+.bal b{font-size:30px;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stamp{margin-left:auto;margin-right:12px;border:2px solid #0d7d72;color:#0d7d72;border-radius:6px;padding:3px 10px;font-family:var(--mono);font-size:13px;letter-spacing:.14em;text-transform:uppercase;transform:rotate(-8deg) scale(1.6);opacity:0;transition:opacity .25s,transform .45s var(--ease)}
+.stamp.on{opacity:1;transform:rotate(-8deg) scale(1)}
+
+/* approach */
+.rules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:clamp(32px,4vw,56px)}
+.rule{--mx:50%;--my:50%;padding:28px;border:1px solid var(--hair);border-radius:18px;background:radial-gradient(320px circle at var(--mx) var(--my),rgba(124,140,255,.13),transparent 60%),rgba(12,15,26,.66);transition:border-color .3s,transform .5s var(--ease)}
+.rule:hover{border-color:var(--hair-2);transform:translateY(-3px)}
+.rule em{font-style:normal;color:var(--dim);display:block;margin-bottom:14px}
+.rule h3{font-size:clamp(20px,2.2vw,26px);letter-spacing:-.02em;font-weight:600;margin:0 0 8px}
+.rule p{margin:0;color:var(--muted);max-width:44ch}
+@media (max-width:760px){.rules{grid-template-columns:1fr}}
+
+/* flight plan: the four stages, joined by a line that fills as it comes into view */
+.flight{list-style:none;margin:clamp(32px,4vw,56px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;position:relative}
+.flight::before{content:"";position:absolute;left:0;right:0;top:5px;height:1px;background:var(--hair-2)}
+.flight::after{content:"";position:absolute;left:0;top:4px;height:3px;width:100%;border-radius:3px;background:linear-gradient(90deg,var(--halo),var(--tb),var(--hb));transform-origin:left;transform:scaleX(0);transition:transform 2.2s var(--ease) .2s;box-shadow:0 0 14px rgba(124,140,255,.6)}
+.flight.in::after{transform:scaleX(1)}
+.flight li{position:relative;padding:34px 24px 0 0;min-width:0}
+.flight li::before{content:"";position:absolute;left:0;top:0;width:11px;height:11px;border-radius:50%;background:var(--space);border:2px solid var(--fg);box-shadow:0 0 14px rgba(124,140,255,.8);z-index:1}
+.flight em{font-style:normal;color:var(--dim);display:block;margin-bottom:10px}
+.flight h3{font-size:clamp(20px,2.2vw,26px);letter-spacing:-.02em;font-weight:600;margin:0 0 8px}
+.flight p{margin:0;color:var(--muted);max-width:30ch}
+.flight + .rules{margin-top:clamp(40px,5vw,72px)}
+@media (max-width:860px){
+  .flight{grid-template-columns:1fr;gap:26px}
+  .flight::before{left:5px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .flight::after{left:4px;top:0;width:3px;height:100%;transform-origin:top;transform:scaleY(0);background:linear-gradient(180deg,var(--halo),var(--tb),var(--hb))}
+  .flight.in::after{transform:scaleY(1)}
+  .flight li{padding:0 0 0 30px}
+  .flight li::before{top:6px}
+  .flight p{max-width:46ch}
+}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,72px);align-items:start}
+.letter{font-size:clamp(19px,2vw,24px);line-height:1.5;letter-spacing:-.01em}
+.letter p{margin:0 0 1em}
+.letter p:last-child{margin:0;color:var(--muted);font-size:16px}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
+
+/* contact */
+.contact h2{max-width:14ch;font-size:clamp(40px,8vw,104px);letter-spacing:-.045em}
+.mailrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:clamp(24px,3vw,40px)}
+.mail{font-size:clamp(20px,3vw,34px);font-weight:500;letter-spacing:-.02em;text-decoration:underline;text-decoration-color:var(--halo);text-decoration-thickness:1.5px;text-underline-offset:6px;user-select:all;overflow-wrap:anywhere}
+.cpy{font:inherit;font-family:var(--mono);font-size:12.5px;border:1px solid var(--hair-2);background:rgba(12,15,26,.6);color:var(--fg);border-radius:999px;padding:9px 14px;cursor:pointer;transition:background .2s}
+.cpy:hover{background:var(--panel)}
+
+footer{border-top:1px solid var(--hair);padding-block:28px 40px;color:var(--muted);font-size:14px;background:rgba(4,5,10,.6)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;justify-content:space-between}
+footer p{margin:0;max-width:70ch}
+footer a{color:var(--fg)}
+
+/* launch sequence: a console types a command, you press return, the studio lifts off */
+#intro{display:none}
+.js.intro body{overflow:hidden}
+.js.intro header,.js.intro main,.js.intro footer{opacity:0}
+header,main,footer{transition:opacity 1.1s var(--ease)}
+.js.intro #intro{display:grid;position:fixed;inset:0;z-index:60;place-items:center;padding:20px}
+.term{width:min(100%,440px);border:1px solid var(--hair-2);border-radius:22px;background:linear-gradient(160deg,rgba(20,24,40,.92),rgba(8,10,18,.92));box-shadow:0 0 90px rgba(124,140,255,.35),inset 0 1px 0 rgba(255,255,255,.08);padding:20px 22px 18px;font-family:var(--mono);font-size:13.5px;transition:transform 1s var(--ease),opacity .7s,border-radius 1s}
+.term .dots{display:flex;gap:7px;margin-bottom:16px}
+.term .dots i{width:9px;height:9px;border-radius:50%;background:var(--hair-2)}
+.term .l{color:var(--muted);margin:0 0 8px;min-height:1.5em}
+.term .l b{color:var(--fg);font-weight:500}
+.term .cur{display:inline-block;width:8px;height:1.05em;background:var(--fg);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.term .run{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;padding:10px 10px 10px 14px;border:1px solid var(--hair);border-radius:14px;background:rgba(4,5,10,.5);color:var(--muted);opacity:0;transition:opacity .5s}
+.term .run.on{opacity:1}
+.term kbd{font-family:var(--mono);font-size:12px;color:var(--fg);border:1px solid var(--hair-2);border-radius:6px;padding:2px 7px;margin:0 4px}
+.term button{font:inherit;font-family:var(--sans);font-weight:500;font-size:14px;border:0;border-radius:10px;padding:9px 14px;background:var(--fg);color:var(--space);cursor:pointer}
+#cd{position:fixed;inset:0;display:grid;place-items:center;font-size:clamp(90px,22vw,240px);font-weight:600;letter-spacing:-.05em;color:var(--fg);pointer-events:none;opacity:0}
+#cd.tick{animation:tick .42s var(--ease)}
+@keyframes tick{0%{opacity:0;transform:scale(1.6)}30%{opacity:1}100%{opacity:0;transform:scale(.8)}}
+#intro.count .term{transform:scale(.9);opacity:.25}
+#intro.go .term{transform:translateY(-70vh) scale(.12);opacity:0;border-radius:40%}
+.skip{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));color:var(--muted);font-size:14px;background:none;border:0;cursor:pointer;font-family:var(--sans)}
+.skip:hover{color:var(--fg)}
+
+/* Fourteen: the studio's little ship. It follows you down the page and says a line per section */
+#buddy{position:fixed;left:0;top:0;z-index:15;pointer-events:none;will-change:transform;opacity:0;transition:opacity .8s}
+.js.ready #buddy{opacity:1}
+.ship{--ex:0px;--ey:0px;position:relative;width:54px;height:54px;border-radius:17px;background:linear-gradient(145deg,#ffffff,#c3cbff 70%,#9aa6ff);box-shadow:0 0 34px rgba(124,140,255,.75),inset 0 -6px 10px rgba(60,70,160,.35),inset 0 3px 4px #fff;display:flex;align-items:center;justify-content:center;gap:9px;transform:rotate(var(--tilt,0deg))}
+.eye{width:11px;height:15px;border-radius:50%;background:#070812;position:relative;transform:translate(var(--ex),var(--ey));animation:wink 5.5s infinite}
+.eye i{position:absolute;left:2px;top:2px;width:4px;height:5px;border-radius:50%;background:#fff}
+@keyframes wink{0%,46%,50%,100%{transform:translate(var(--ex),var(--ey)) scaleY(1)}48%{transform:translate(var(--ex),var(--ey)) scaleY(.1)}}
+.flame{position:absolute;left:50%;top:100%;width:16px;height:26px;margin-left:-8px;border-radius:50% 50% 60% 60%;background:linear-gradient(180deg,#fff,var(--tb) 40%,rgba(124,140,255,0));transform-origin:top;transform:scaleY(var(--burn,.35));filter:blur(1.2px);opacity:.9}
+#say{position:absolute;bottom:calc(100% + 14px);right:-6px;width:max-content;max-width:min(240px,62vw);margin:0;padding:10px 13px;border:1px solid var(--hair-2);border-radius:14px 14px 4px 14px;background:rgba(10,12,22,.94);color:var(--fg);font-size:14px;line-height:1.35;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s var(--ease)}
+#buddy.left #say{right:auto;left:-6px;border-radius:14px 14px 14px 4px}
+#say.on{opacity:1;transform:none}
+
+/* Fourteen, bigger part: antenna, mouth, clickable, takes each app's colour, docks in the contact stage */
+#buddy{transform-origin:27px 27px}
+.ship{pointer-events:auto;cursor:pointer;box-shadow:0 0 34px var(--glow,rgba(124,140,255,.75)),inset 0 -6px 10px rgba(60,70,160,.35),inset 0 3px 4px #fff;transition:box-shadow .6s}
+.ship::before{content:"";position:absolute;left:50%;bottom:100%;width:2px;height:11px;margin-left:-1px;background:#c3cbff;border-radius:2px}
+.ship::after{content:"";position:absolute;left:50%;bottom:calc(100% + 9px);width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:var(--dotc,var(--hb));box-shadow:0 0 10px var(--dotc,var(--hb));animation:blink 1.6s steps(1) infinite}
+.mouth{position:absolute;left:50%;bottom:11px;width:10px;height:5px;margin-left:-5px;border-radius:0 0 10px 10px;background:#070812;transition:height .12s,border-radius .12s}
+.ship.talk .mouth{animation:chat .28s infinite alternate}
+@keyframes chat{to{height:9px;border-radius:50%}}
+.ship .eye{margin-bottom:8px}
+.ship.spin{animation:spin .7s var(--ease)}
+@keyframes spin{to{transform:rotate(360deg) scale(1.15)}}
+.ship:hover{filter:brightness(1.08)}
+#buddy.docked #say{opacity:0}
+
+/* contact stage: Fourteen floats to the middle and asks */
+.stage-c{display:grid;justify-items:center;text-align:center;margin-top:clamp(28px,4vw,48px);padding:clamp(24px,4vw,44px) clamp(18px,4vw,44px);border:1px solid var(--hair);border-radius:26px;background:radial-gradient(70% 60% at 50% 0%,rgba(124,140,255,.16),transparent 70%),rgba(12,15,26,.7)}
+.dock{width:140px;height:150px}
+.ask{font-size:clamp(22px,3vw,34px);font-weight:600;letter-spacing:-.03em;line-height:1.15;margin:0 0 6px;min-height:2.4em;max-width:20ch;text-wrap:balance}
+.cform{display:grid;gap:14px;width:min(100%,520px);text-align:left;margin-top:10px}
+.chips{border:0;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chips legend{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.chips label{cursor:pointer}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-block;border:1px solid var(--hair-2);border-radius:999px;padding:8px 14px;font-size:15px;color:var(--muted);background:rgba(4,5,10,.5);transition:all .2s}
+.chips input:checked + span{background:var(--fg);color:var(--space);border-color:var(--fg)}
+.chips input:focus-visible + span{outline:2px solid var(--fg);outline-offset:3px}
+.cform label.f{display:grid;gap:6px;font-size:14px;color:var(--muted)}
+.cform input[type=text],.cform textarea{font:inherit;color:var(--fg);background:rgba(4,5,10,.6);border:1px solid var(--hair-2);border-radius:14px;padding:12px 14px;width:100%;resize:vertical}
+.cform textarea{min-height:120px}
+.cform input[type=text]:focus,.cform textarea:focus{outline:0;border-color:var(--halo);box-shadow:0 0 0 3px rgba(124,140,255,.25)}
+.cform .send{justify-self:center;border:0;cursor:pointer;font:inherit;font-weight:500}
+.cform .hint{margin:0;text-align:center;font-size:14px;color:var(--muted)}
+.stage-c .mailrow{justify-content:center;margin-top:18px}
+.stage-c .mail{font-size:clamp(17px,2vw,22px)}
+.who{display:grid;justify-items:center;text-align:center}
+@media (min-width:900px){
+  .stage-c{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);justify-items:stretch;align-items:start;gap:clamp(24px,4vw,56px);text-align:left}
+  .who{position:sticky;top:120px;padding-block:20px}
+  .dock{width:220px;height:210px}
+  .cform{margin-top:0;width:100%}
+  .chips{justify-content:flex-start}
+  .cform .send{justify-self:start}
+  .cform .hint{text-align:left}
+  .stage-c .mailrow{grid-column:2;justify-content:flex-start;margin-top:0}
+}
+
+/* words light up as you scroll through them */
+.wr .w{transition:opacity .35s}
+.js .wr .w:not(.lit){opacity:.22}
+
+/* scroll reveal: a small lift, content stays readable without it */
+.rv{transition:transform .9s var(--ease),opacity .9s var(--ease)}
+.js .rv:not(.in){transform:translateY(22px);opacity:.3}
+.js .flight.rv:not(.in){transform:none;opacity:1}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv:not(.in){transform:none;opacity:1}
+  h1 .q{color:var(--fg);background:none}
+  .js .wr .w:not(.lit){opacity:1}
+  #buddy{display:none}
+}
+</style>
+</head>
+<body>
+<canvas id="sky" aria-hidden="true"></canvas>
+<div class="nebula" aria-hidden="true"></div>
+
+<div id="intro" role="dialog" aria-label="Launch sequence">
+  <div class="term">
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    <p class="l">aprilfourteen ~ mission control</p>
+    <p class="l"># two apps on board, all systems go</p>
+    <p class="l">~ $ <b id="cmd"></b><span class="cur" aria-hidden="true"></span></p>
+    <div class="run" id="runRow"><span>Press<kbd>return ⏎</kbd>to launch</span><button type="button" id="runBtn">Launch ⏎</button></div>
+  </div>
+  <div id="cd" aria-hidden="true"></div>
+  <button class="skip" type="button" id="skipBtn">Skip intro</button>
+</div>
+
+<div id="buddy" aria-hidden="true">
+  <div class="ship" id="ship"><span class="eye"><i></i></span><span class="eye"><i></i></span><span class="mouth"></span><span class="flame"></span></div>
+  <p id="say"></p>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Aprilfourteen, back to top"><span class="tile" aria-hidden="true">14</span>Aprilfourteen</a>
+    <nav class="mono" aria-label="Sections">
+      <a href="#apps"><b>01</b>Apps</a>
+      <a href="#approach"><b>02</b>Approach</a>
+      <a href="#about"><b>03</b>About</a>
+      <a href="#contact"><b>04</b>Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <div class="now mono"><span class="dot" aria-hidden="true"></span>Holdback is in review with Shopify</div>
+        <h1>
+          <span class="ln"><span>We're Aprilfourteen.</span></span>
+          <span class="ln"><span>We build apps</span></span>
+          <span class="ln"><span class="q">for Shopify shops.</span></span>
+        </h1>
+        <p class="lede">A small, independent studio. We build apps for the jobs shop owners are still doing by hand, <span>and we start every one by asking how they do it today.</span></p>
+        <div class="cta">
+          <a class="btn solid" href="#apps">See the apps</a>
+          <a class="btn ghost" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="system" id="system" aria-label="The apps, shown in orbit around Aprilfourteen">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <g transform="rotate(-16 50 50)">
+            <ellipse class="ring" cx="50" cy="50" rx="24" ry="9.5"></ellipse>
+            <ellipse class="ring" cx="50" cy="50" rx="36" ry="15"></ellipse>
+            <ellipse class="ring dash" cx="50" cy="50" rx="47" ry="20.5"></ellipse>
+          </g>
+        </svg>
+        <div class="core" aria-hidden="true">14</div>
+        <a class="planet hb" href="#holdback" data-rx="24" data-ry="9.5" data-speed="0.26" data-phase="0.6"><i></i><span><b>Holdback</b><small class="mono">IN REVIEW</small></span></a>
+        <a class="planet tb" href="#tickbook" data-rx="36" data-ry="15" data-speed="0.17" data-phase="3.4"><i></i><span><b>Tickbook</b><small class="mono">COMING SOON</small></span></a>
+        <a class="planet idea" href="#contact" data-rx="47" data-ry="20.5" data-speed="0.1" data-phase="5.1"><i></i><span><b>Your idea</b><small class="mono">OPEN ORBIT</small></span></a>
+      </div>
+    </div>
+
+    <div class="stats rv">
+      <div class="stat"><em class="mono">APPS</em><b data-count="2">2</b><span>so far, each built to do one job well</span></div>
+      <div class="stat"><em class="mono">STUDIO</em><b>UK</b><span>small and independent. We design, build and support every app ourselves</span></div>
+      <div class="stat"><em class="mono">TICKET QUEUES</em><b>0</b><span>Email us and the people who built the app reply</span></div>
+    </div>
+  </div>
+
+  <section id="apps">
+    <div class="wrap">
+      <p class="eyebrow">01 · Apps</p>
+      <h2>Two apps so far.</h2>
+      <p class="sub">Each one does a single job, and each has its own site with the full detail. Here's the short version of both.</p>
+
+      <div class="apps">
+        <article class="app hb rv" id="holdback">
+          <div class="body">
+            <span class="tag mono"><i></i>In review with Shopify</span>
+            <h3>Holdback</h3>
+            <p>Deposits, late fees and damage for hire shops on Shopify. Your customer agrees the terms at checkout, and is told why whenever money is kept.</p>
+            <ul>
+              <li>Save the card with nothing taken, or take the deposit at checkout</li>
+              <li>Late fees at the press of a button</li>
+              <li>Never more than the deposit your customer agreed to</li>
+            </ul>
+            <div class="foot"><a class="btn solid" href="https://holdback.co.uk" target="_blank" rel="noopener">holdback.co.uk ↗</a></div>
+          </div>
+          <div class="stage" aria-hidden="true">
+            <div class="card" id="hbScene">
+              <div class="k mono"><span>DEPOSIT</span><span>#1042 · Pram, 3-day hire</span></div>
+              <div class="amt">£120.00</div>
+              <div class="note">Card saved at checkout. Nothing taken.</div>
+              <div class="steps">
+                <div class="step"><i></i><div><b>Agreed at checkout</b><small>£15 a day if it's late</small></div><span class="v">£0.00</span></div>
+                <div class="step"><i></i><div><b>Back two days late</b><small>You press one button</small></div><span class="v">£30.00</span></div>
+                <div class="step"><i></i><div><b>Customer emailed why</b><small>Itemised, with the reason</small></div><span class="v">sent</span></div>
+                <div class="step good"><i></i><div><b>The rest is never taken</b><small>Nothing to refund</small></div><span class="v">£90.00</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="app tb rv" id="tickbook">
+          <div class="stage" aria-hidden="true">
+            <div class="book" id="tbScene">
+              <div class="head"><b>Hartley Builders</b><span>TRADE ACCOUNT · EXAMPLE</span></div>
+              <div class="entry"><span>MON</span><span>At the till</span><span class="v">£86.40</span></div>
+              <div class="entry"><span>THU</span><span>Online order</span><span class="v">£212.00</span></div>
+              <div class="entry"><span>30TH</span><span>Statement sent</span><span class="v">£298.40</span></div>
+              <div class="bal"><span>Owed, of a £1,000 limit</span><div class="stamp" id="tbStamp">Paid</div><b id="tbBal">£0.00</b></div>
+            </div>
+          </div>
+          <div class="body">
+            <span class="tag mono"><i></i>Coming soon</span>
+            <h3>Tickbook</h3>
+            <p>Trade and charge accounts for Shopify. Your approved customers buy on account at the till and at your online checkout, and pay by statement.</p>
+            <ul>
+              <li>One balance, one limit, one statement</li>
+              <li>Statements that send themselves</li>
+              <li>You always know who owes what</li>
+            </ul>
+            <div class="foot"><a class="btn solid" href="https://tickbook.uk" target="_blank" rel="noopener">tickbook.uk ↗</a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="approach">
+    <div class="wrap">
+      <p class="eyebrow">02 · Approach</p>
+      <h2>How an app gets made.</h2>
+      <p class="sub">Every app goes through the same four stages, and we don't skip any of them.</p>
+      <ol class="flight rv">
+        <li><em class="mono">STAGE 01</em><h3>Listen</h3><p>We find a job shops are doing by hand, then ask a lot of owners how they handle it today. What they tell us decides what gets built.</p></li>
+        <li><em class="mono">STAGE 02</em><h3>Build</h3><p>One job per app, built to feel like part of Shopify. No bundles, and no features added just to fill a pricing page.</p></li>
+        <li><em class="mono">STAGE 03</em><h3>Test</h3><p>We run it on real test stores, start to finish, before a shop ever sees it. Then it goes through Shopify's own review.</p></li>
+        <li><em class="mono">STAGE 04</em><h3>Launch, and stay</h3><p>We email everyone who asked to hear about it. After that we keep fixing, improving and answering.</p></li>
+      </ol>
+      <div class="rules">
+        <div class="rule rv"><em class="mono">PROMISE 01</em><h3>Plain words</h3><p>Your customers read what our apps put in front of them, so it's written the way you'd say it across the counter. No jargon and no small print doing the heavy lifting.</p></div>
+        <div class="rule rv"><em class="mono">PROMISE 02</em><h3>Straight answers</h3><p>Every app's site says what it needs and what it doesn't do. If it isn't right for your shop, we'd rather tell you now than after you've set it up.</p></div>
+        <div class="rule rv"><em class="mono">PROMISE 03</em><h3>Built on Shopify</h3><p>Our apps work with Shopify's own checkout and admin wherever they can, so your orders and your customers stay where you already look for them.</p></div>
+        <div class="rule rv"><em class="mono">PROMISE 04</em><h3>Real people, not a queue</h3><p>Questions go straight to the people who built the app. No scripts and no ticket numbers, just a proper answer.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <p class="eyebrow">03 · About</p>
+        <h2>Who's behind it.</h2>
+      </div>
+      <div class="letter rv">
+        <p>Olly here, I'm the founder of Aprilfourteen.</p>
+        <p>It started with a simple question to shop owners: how do you do it today? Again and again the answer was a job that really mattered to the business, held together with a spreadsheet, a notebook by the till or somebody's memory.</p>
+        <p>Shopify does a huge amount, but it doesn't do everything. Those gaps are where we work. We pick one, talk to as many shops as will have us, and build the app we'd want if it were our own shop.</p>
+        <p>We're a small studio on purpose. It means you get straight answers, quick fixes and people who know the app inside out. If there's a job like that in your shop, I'd love to hear about it!</p>
+        <p>Oliver Barry, founder of Aprilfourteen</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <p class="eyebrow">04 · Contact</p>
+      <h2>What does your shop still do by hand?</h2>
+      <p class="sub">Whether it's a question about Holdback or Tickbook, or a job you wish an app would take off your hands, tell us. Even a line is a big help, and every message gets a proper reply.</p>
+      <div class="stage-c">
+        <div class="who">
+          <div class="dock" id="dock" aria-hidden="true"></div>
+          <p class="ask" id="ask">Got a question, or an idea for an app?</p>
+        </div>
+        <form class="cform" id="cform" novalidate>
+          <fieldset class="chips">
+            <legend>What is it about?</legend>
+            <label><input type="radio" name="topic" id="t-idea" value="An idea for an app" checked><span>I have an idea</span></label>
+            <label><input type="radio" name="topic" id="t-hb" value="A question about Holdback"><span>About Holdback</span></label>
+            <label><input type="radio" name="topic" id="t-tb" value="A question about Tickbook"><span>About Tickbook</span></label>
+            <label><input type="radio" name="topic" id="t-other" value="Hello from your website"><span>Something else</span></label>
+          </fieldset>
+          <label class="f" for="c-name">Your name or shop<input type="text" id="c-name" autocomplete="organization"></label>
+          <label class="f" for="c-msg">Your message<textarea id="c-msg" placeholder="The job we still do by hand is..."></textarea></label>
+          <button class="btn solid send" type="submit">Send it to us ↗</button>
+          <p class="hint">This opens your own email app with the message ready to send.</p>
+        </form>
+        <div class="mailrow">
+          <a class="mail" id="mail" href="mailto:olly@aprilfourteen.co.uk">olly@aprilfourteen.co.uk</a>
+          <button class="cpy" id="copyBtn" type="button">Copy address</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Aprilfourteen Ltd, registered in England and Wales, company no. 13109333. Registered office: 2 The Willows, Buntingford, SG9 9EN, United Kingdom.</p>
+    <p><a href="https://holdback.co.uk" target="_blank" rel="noopener">Holdback</a> · <a href="https://tickbook.uk" target="_blank" rel="noopener">Tickbook</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement; root.classList.add('js');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- starfield: three depths, slow drift, shifts with scroll, the odd shooting star ---------- */
+  var cv=document.getElementById('sky'), cx=cv.getContext('2d'), W=0,H=0,DPR=1,stars=[],shoot=null,scrollY=0;
+  function size(){DPR=Math.min(window.devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*DPR;cv.height=H*DPR;cx.setTransform(DPR,0,0,DPR,0,0);
+    var n=Math.round(Math.min(340,W*H/5200));stars=[];
+    for(var i=0;i<n;i++){var z=Math.random();stars.push({x:Math.random()*W,y:Math.random()*H,z:z,r:.35+z*1.25,tw:Math.random()*6.28,hue:Math.random()})}}
+  var vel=0,lastY=0,warp=0;
+  function draw(t){
+    var sy0=window.pageYOffset||0; vel+=((sy0-lastY)-vel)*.2; lastY=sy0; warp*=.965;
+    var streak=Math.min(70,Math.abs(vel)*1.5)+warp*160, dir=(vel<0&&warp<.05)?-1:1;
+    cx.clearRect(0,0,W,H);
+    for(var i=0;i<stars.length;i++){var s=stars[i];
+      var y=(s.y - scrollY*(.04+s.z*.16)) % H; if(y<0)y+=H;
+      var x=(s.x + t*.0000045*W*(.3+s.z)) % W;
+      var a=.35+.65*Math.abs(Math.sin(s.tw+t*.0006*(.5+s.z)));
+      cx.globalAlpha=a*(.35+s.z*.65);
+      cx.fillStyle=s.hue>.9?'#9fffe0':(s.hue>.8?'#b9c2ff':'#ffffff');
+      if(streak>2){cx.strokeStyle=cx.fillStyle;cx.lineWidth=s.r*1.3;cx.lineCap='round';cx.beginPath();cx.moveTo(x,y);cx.lineTo(x,y+dir*streak*(.25+s.z));cx.stroke()}
+      else{cx.beginPath();cx.arc(x,y,s.r,0,6.283);cx.fill()}}
+    if(shoot){shoot.p+=.018;var p=shoot.p;if(p>=1){shoot=null}else{
+      var sx=shoot.x+shoot.dx*p, sy=shoot.y+shoot.dy*p;
+      var g=cx.createLinearGradient(sx,sy,sx-shoot.dx*.18,sy-shoot.dy*.18);g.addColorStop(0,'rgba(255,255,255,'+(1-p)+')');g.addColorStop(1,'rgba(255,255,255,0)');
+      cx.globalAlpha=1;cx.strokeStyle=g;cx.lineWidth=1.4;cx.beginPath();cx.moveTo(sx,sy);cx.lineTo(sx-shoot.dx*.18,sy-shoot.dy*.18);cx.stroke();}}
+    cx.globalAlpha=1;
+  }
+  size(); window.addEventListener('resize',size);
+  window.addEventListener('scroll',function(){scrollY=window.pageYOffset||0},{passive:true});
+  if(!reduce){setInterval(function(){if(!shoot&&!document.hidden){shoot={x:Math.random()*W*.7,y:Math.random()*H*.4,dx:W*.45,dy:H*.22,p:0}}},5200)}
+
+  /* ---------- the system: each app moves on its own tilted ellipse ---------- */
+  var sys=document.getElementById('system'), planets=[].slice.call(sys.querySelectorAll('.planet')), tilt=-16*Math.PI/180, ct=Math.cos(tilt), st=Math.sin(tilt);
+  function place(t){
+    var S=sys.clientWidth;
+    planets.forEach(function(p){
+      var a=parseFloat(p.dataset.phase)+(reduce?0:t*.001*parseFloat(p.dataset.speed));
+      var x=parseFloat(p.dataset.rx)*Math.cos(a), y=parseFloat(p.dataset.ry)*Math.sin(a);
+      var X=50+x*ct-y*st, Y=50+x*st+y*ct, d=(Math.sin(a)+1)/2;
+      p.style.transform='translate('+(X/100*S)+'px,'+(Y/100*S)+'px) translate(-50%,-22%) scale('+(.82+d*.26)+')';
+      p.style.zIndex=Math.sin(a)>0?7:3; p.style.opacity=.62+d*.38;
+    });
+  }
+
+  function frame(t){draw(t);place(t);if(!reduce){fly(t);light();requestAnimationFrame(frame)}}
+  requestAnimationFrame(frame);
+  if(reduce){window.addEventListener('resize',function(){draw(0);place(0)})}
+
+  /* ---------- scroll reveal ---------- */
+  var rv=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);
+      [].forEach.call(e.target.querySelectorAll('[data-count]'),count)}})},{rootMargin:'0px 0px -8% 0px'});
+    rv.forEach(function(el){io.observe(el)});
+    setTimeout(function(){rv.forEach(function(el){el.classList.add('in')})},4500);
+  } else { rv.forEach(function(el){el.classList.add('in')}) }
+
+  /* ---------- telemetry numbers count up once ---------- */
+  function count(el){
+    if(el.dataset.done)return; el.dataset.done=1;
+    var to=parseInt(el.dataset.count,10), suf=el.dataset.suffix||'', t0=null, dur=to>100?1500:500;
+    (function step(ts){if(!t0)t0=ts;var p=Math.min(1,(ts-t0)/dur), e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(to*e).toLocaleString('en-GB')+(p===1?suf:''); if(p<1)requestAnimationFrame(step)})(performance.now());
+  }
+
+  /* ---------- a soft light follows the pointer across panels ---------- */
+  [].forEach.call(document.querySelectorAll('.app,.rule'),function(el){
+    el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect();el.style.setProperty('--mx',(e.clientX-r.left)+'px');el.style.setProperty('--my',(e.clientY-r.top)+'px')});
+  });
+
+  /* ---------- app scenes ---------- */
+  var hb=[].slice.call(document.querySelectorAll('#hbScene .step'));
+  var te=[].slice.call(document.querySelectorAll('#tbScene .entry'));
+  var bal=document.getElementById('tbBal'), stamp=document.getElementById('tbStamp');
+  var sums=['£86.40','£298.40','£298.40'];
+  if(reduce){ hb.forEach(function(s){s.classList.add('on')}); te.forEach(function(s){s.classList.add('on')}); stamp.classList.add('on'); }
+  else{
+    var i=0;
+    (function loopH(){
+      if(i===0){hb.forEach(function(s){s.classList.remove('on')})}
+      if(i<hb.length){hb[i].classList.add('on');i++;setTimeout(loopH,1100)}
+      else{i=0;setTimeout(loopH,3200)}
+    })();
+    var j=0;
+    (function loopT(){
+      if(j===0){te.forEach(function(s){s.classList.remove('on')});stamp.classList.remove('on');bal.textContent='£0.00'}
+      if(j<te.length){te[j].classList.add('on');bal.textContent=sums[j];j++;setTimeout(loopT,1200)}
+      else if(j===te.length){stamp.classList.add('on');bal.textContent='£0.00';j++;setTimeout(loopT,3200)}
+      else{j=0;setTimeout(loopT,300)}
+    })();
+  }
+
+  /* ---------- Fourteen, the ship: parks bottom corner, swaps sides per section, says a line ---------- */
+  var buddy=document.getElementById('buddy'), ship=document.getElementById('ship'), say=document.getElementById('say');
+  var stops=[['#holdback','R',"Holdback. Deposits and late fees for hire shops."],['#tickbook','L',"Tickbook. Trade accounts, coming soon."],['#approach','R',"Four stages. We don't skip any of them."],['#about','L',"That's Olly. He founded the place."],['#contact','R',"Go on, say hello. We always reply."],['#apps','L',"Two apps in orbit so far."],['.hero','R',"I'm Fourteen. I'll show you round."]]
+    .map(function(s){return {el:document.querySelector(s[0]),side:s[1],line:s[2]}});
+  var bx=window.innerWidth-90, by=window.innerHeight-120, cur=null, sayT=null, hideT=null;
+  function speak(line){
+    clearInterval(sayT);clearTimeout(hideT);var w=line.split(' '),i=0;say.textContent='';say.classList.add('on');ship.classList.add('talk');
+    sayT=setInterval(function(){say.textContent+=(i?' ':'')+w[i];i++;if(i>=w.length){clearInterval(sayT);ship.classList.remove('talk');hideT=setTimeout(function(){say.classList.remove('on')},4200)}},95);
+  }
+  function fly(t){
+    if(!root.classList.contains('ready'))return;
+    var vw=window.innerWidth, vh=window.innerHeight, mid=vh*.55, hit=null;
+    for(var k=0;k<stops.length;k++){var r=stops[k].el.getBoundingClientRect();if(r.top<=mid&&r.bottom>=mid){hit=stops[k];break}}
+    if(hit&&hit!==cur){cur=hit;speak(hit.line);
+      var g=hit.el.id==='holdback'?'rgba(61,220,145,.85)':(hit.el.id==='tickbook'?'rgba(63,214,196,.85)':'rgba(124,140,255,.75)');
+      ship.style.setProperty('--glow',g);ship.style.setProperty('--dotc',hit.el.id==='tickbook'?'var(--tb)':'var(--hb)')}
+    var small=vw<760, left=cur&&cur.side==='L'&&!small;
+    buddy.classList.toggle('left',!!left);
+    var tx=left?34:vw-92, ty=vh-(small?104:132)+Math.sin(t/650)*6, want=small?1.05:1.3;
+    var dr=dock.getBoundingClientRect(), docked=dr.top<vh-90&&dr.bottom>70;
+    if(docked){tx=dr.left+dr.width/2-27; ty=dr.top+dr.height/2-20+Math.sin(t/650)*7; want=small?2.1:2.9}
+    if(docked!==wasDocked){wasDocked=docked;buddy.classList.toggle('docked',docked);if(docked){say.classList.remove('on');ask("Got a question, or an idea for an app?")}}
+    var dx=tx-bx;
+    bx+=dx*(docked?.12:.06); by+=((ty-(docked?0:Math.min(140,Math.abs(dx)*.22)))-by)*(docked?.16:.12); sc+=(want-sc)*.08;
+    buddy.style.transform='translate('+bx.toFixed(1)+'px,'+by.toFixed(1)+'px) scale('+sc.toFixed(3)+')';
+    ship.style.setProperty('--tilt',Math.max(-22,Math.min(22,dx*.05))+'deg');
+    ship.style.setProperty('--burn',(.35+Math.min(1.5,Math.abs(dx)/110+Math.abs(vel)/40)).toFixed(2));
+  }
+  var dock=document.getElementById('dock'), askEl=document.getElementById('ask'), wasDocked=false, sc=1, askT=null;
+  function ask(line){
+    clearInterval(askT);var w=line.split(' '),i=0;askEl.textContent='';ship.classList.add('talk');
+    if(reduce){askEl.textContent=line;ship.classList.remove('talk');return}
+    askT=setInterval(function(){askEl.textContent+=(i?' ':'')+w[i];i++;if(i>=w.length){clearInterval(askT);ship.classList.remove('talk')}},90);
+  }
+  var quips=["Wheee!","Fourteen, reporting for duty.","That tickles.","Scroll on, there's more below.","Have you met Holdback yet?"], qi=0;
+  ship.addEventListener('click',function(){
+    ship.classList.remove('spin');void ship.offsetWidth;ship.classList.add('spin');
+    if(wasDocked){ask("That's me! Now, what can we do for you?")}else{speak(quips[qi++%quips.length])}
+  });
+  var topicLines={'t-idea':"Ooh, an idea. Go on, we're listening!",'t-hb':"Holdback it is. Ask away.",'t-tb':"Tickbook it is. Ask away.",'t-other':"Lovely. What's on your mind?"};
+  [].forEach.call(document.querySelectorAll('#cform input[name=topic]'),function(r){r.addEventListener('change',function(){ask(topicLines[r.id])})});
+  document.getElementById('cform').addEventListener('submit',function(e){
+    e.preventDefault();
+    var msg=document.getElementById('c-msg').value.trim(), name=document.getElementById('c-name').value.trim();
+    if(!msg){ask("Pop a few words in the box first.");document.getElementById('c-msg').focus();return}
+    var topic=(document.querySelector('#cform input[name=topic]:checked')||{}).value||'Hello';
+    ask("Thanks! Over to your email app to send it.");
+    window.location.href='mailto:olly@aprilfourteen.co.uk?subject='+encodeURIComponent(topic+(name?' ('+name+')':''))+'&body='+encodeURIComponent(msg+(name?'\n\n'+name:''));
+  });
+
+  window.addEventListener('pointermove',function(e){
+    var ax=e.clientX-(bx+27), ay=e.clientY-(by+27), d=Math.max(1,Math.sqrt(ax*ax+ay*ay));
+    ship.style.setProperty('--ex',(ax/d*2.6).toFixed(1)+'px');ship.style.setProperty('--ey',(ay/d*2.6).toFixed(1)+'px');
+  },{passive:true});
+
+  /* ---------- words light up as you scroll through them ---------- */
+  var wr=[].slice.call(document.querySelectorAll('h2,.sub,.letter p,.lede'));
+  wr.forEach(function(el){
+    el.classList.add('wr');
+    (function walk(n){[].slice.call(n.childNodes).forEach(function(c){
+      if(c.nodeType===3){var f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(p){if(!p)return;if(/^\s+$/.test(p)){f.appendChild(document.createTextNode(p))}else{var s=document.createElement('span');s.className='w';s.textContent=p;f.appendChild(s)}});n.replaceChild(f,c)}
+      else if(c.nodeType===1){walk(c)}})})(el);
+    el._w=[].slice.call(el.querySelectorAll('.w'));
+  });
+  function light(){
+    var vh=window.innerHeight;
+    for(var k=0;k<wr.length;k++){var el=wr[k], r=el.getBoundingClientRect(); if(r.bottom<-50||r.top>vh+50)continue;
+      var p=(vh*.92-r.top)/(vh*.42+r.height*.6), n=el._w.length, on=Math.round(Math.max(0,Math.min(1,p))*n);
+      if(el._on===on)continue; el._on=on; for(var i=0;i<n;i++){el._w[i].classList.toggle('lit',i<on)}}
+  }
+  if(reduce){wr.forEach(function(el){el._w.forEach(function(w){w.classList.add('lit')})})}
+
+  /* ---------- launch sequence ---------- */
+  var intro=document.getElementById('intro'), cmd=document.getElementById('cmd'), runRow=document.getElementById('runRow'), cd=document.getElementById('cd'), launched=false, seen=false;
+  try{seen=sessionStorage.getItem('a14intro')==='1'}catch(e){}
+  function finish(){root.classList.remove('intro');root.classList.add('ready');try{sessionStorage.setItem('a14intro','1')}catch(e){}setTimeout(function(){intro.hidden=true},900)}
+  function launch(){
+    if(launched)return;launched=true;intro.classList.add('count');
+    var seq=['3','2','1'],i=0;
+    (function tick(){ if(i<seq.length){cd.textContent=seq[i];cd.classList.remove('tick');void cd.offsetWidth;cd.classList.add('tick');i++;setTimeout(tick,430)}
+      else{intro.classList.remove('count');intro.classList.add('go');warp=1;bx=window.innerWidth/2-27;by=window.innerHeight*.3;setTimeout(finish,650)} })();
+  }
+  if(reduce||seen){root.classList.add('ready');intro.hidden=true}
+  else{
+    root.classList.add('intro');
+    var text='launch aprilfourteen', n=0;
+    setTimeout(function type(){cmd.textContent=text.slice(0,++n);if(n<text.length){setTimeout(type,55+Math.random()*60)}else{runRow.classList.add('on');setTimeout(launch,2600)}},500);
+    document.addEventListener('keydown',function(e){if(e.key==='Enter'&&!launched){e.preventDefault();launch()}});
+    document.getElementById('runBtn').addEventListener('click',launch);
+    document.getElementById('skipBtn').addEventListener('click',function(){launched=true;finish()});
+  }
+
+  /* ---------- copy the address ---------- */
+  var btn=document.getElementById('copyBtn'), mail=document.getElementById('mail');
+  btn.addEventListener('click',function(){
+    var done=function(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy address'},1800)};
+    var sel=function(){var r=document.createRange();r.selectNodeContents(mail);var s=window.getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='Selected, now copy'};
+    try{navigator.clipboard.writeText(mail.textContent).then(done,sel)}catch(e){sel()}
+  });
+})();
+</script>
+</body>
+</html>

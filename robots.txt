@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aprilfourteen.co.uk/sitemap.xml
