@@ -136,7 +136,10 @@ h2{font-size:clamp(32px,5.2vw,64px);line-height:1;letter-spacing:-.04em;font-wei
 .app ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:9px;color:var(--muted)}
 .app li{padding-left:20px;position:relative}
 .app li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:currentColor;opacity:.6}
-.app .foot{margin-top:auto;padding-top:10px}
+.app .foot{margin-top:auto;padding-top:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.store{border:1px solid var(--hair-2);color:var(--fg);background:rgba(4,5,10,.35);font-size:15px}
+.store.off{border-style:dashed;color:var(--muted);cursor:default}
+.store.off:hover{transform:none}
 .tag{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--hair-2);border-radius:999px;padding:5px 11px;white-space:nowrap;align-self:flex-start;background:rgba(4,5,10,.4)}
 .tag i{width:6px;height:6px;border-radius:50%;background:var(--muted)}
 .hb{--glow:var(--hb);--spot:rgba(61,220,145,.10);--ground:#07080b}
@@ -417,7 +420,7 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
               <li>Late fees at the press of a button</li>
               <li>Never more than the deposit your customer agreed to</li>
             </ul>
-            <div class="foot"><a class="btn solid" href="https://holdback.co.uk" target="_blank" rel="noopener">holdback.co.uk ↗</a></div>
+            <div class="foot"><a class="btn solid" href="https://holdback.co.uk" target="_blank" rel="noopener">Visit holdback.co.uk ↗</a><span class="btn store off" data-store="holdback">Shopify App Store, after review</span></div>
           </div>
           <div class="stage" aria-hidden="true">
             <div class="card" id="hbScene">
@@ -453,7 +456,7 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
               <li>Statements that send themselves</li>
               <li>You always know who owes what</li>
             </ul>
-            <div class="foot"><a class="btn solid" href="https://tickbook.uk" target="_blank" rel="noopener">tickbook.uk ↗</a></div>
+            <div class="foot"><a class="btn solid" href="https://tickbook.uk" target="_blank" rel="noopener">Visit tickbook.uk ↗</a><span class="btn store off" data-store="tickbook">Shopify App Store, coming soon</span></div>
           </div>
         </article>
       </div>
@@ -531,7 +534,7 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
 <footer>
   <div class="wrap">
     <p>Aprilfourteen Ltd, registered in England and Wales, company no. 13109333. Registered office: 2 The Willows, Buntingford, SG9 9EN, United Kingdom.</p>
-    <p><a href="https://holdback.co.uk" target="_blank" rel="noopener">Holdback</a> · <a href="https://tickbook.uk" target="_blank" rel="noopener">Tickbook</a></p>
+    <p><a href="https://holdback.co.uk" target="_blank" rel="noopener">holdback.co.uk</a> · <a href="https://tickbook.uk" target="_blank" rel="noopener">tickbook.uk</a></p>
   </div>
 </footer>
 
@@ -720,6 +723,16 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
     document.getElementById('runBtn').addEventListener('click',launch);
     document.getElementById('skipBtn').addEventListener('click',function(){launched=true;finish()});
   }
+
+  /* ---------- Shopify App Store links ----------
+     When an app's listing is public, paste its address between the quotes below.
+     The dashed placeholder on that app's panel then becomes a live button. */
+  var STORE_LINKS={ holdback:'', tickbook:'' };
+  [].forEach.call(document.querySelectorAll('[data-store]'),function(el){
+    var url=STORE_LINKS[el.dataset.store]; if(!url)return;
+    var a=document.createElement('a'); a.className='btn store'; a.href=url; a.target='_blank'; a.rel='noopener'; a.textContent='View on the Shopify App Store ↗';
+    el.parentNode.replaceChild(a,el);
+  });
 
   /* ---------- copy the address ---------- */
   var btn=document.getElementById('copyBtn'), mail=document.getElementById('mail');
