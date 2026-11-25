@@ -373,7 +373,7 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
   <div class="wrap">
     <div class="hero">
       <div>
-        <div class="now mono"><span class="dot" aria-hidden="true"></span>Holdback is live on the Shopify App Store</div>
+        <div class="now mono"><span class="dot" aria-hidden="true"></span>Holdback is live on Shopify</div>
         <h1>
           <span class="ln"><span>We're Aprilfourteen.</span></span>
           <span class="ln"><span>We build apps</span></span>
@@ -400,12 +400,6 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
         <a class="planet idea" href="#contact" data-rx="47" data-ry="20.5" data-speed="0.1" data-phase="5.1"><i></i><span><b>Your idea</b><small class="mono">OPEN ORBIT</small></span></a>
       </div>
     </div>
-
-    <div class="stats rv">
-      <div class="stat"><em class="mono">APPS</em><b data-count="2">2</b><span>so far, each built to do one job well</span></div>
-      <div class="stat"><em class="mono">STUDIO</em><b>UK</b><span>small and independent. We design, build and support every app ourselves</span></div>
-      <div class="stat"><em class="mono">TICKET QUEUES</em><b>0</b><span>Email us and the people who built the app reply</span></div>
-    </div>
   </div>
 
   <section id="apps">
@@ -425,7 +419,7 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
               <li>Late fees at the press of a button</li>
               <li>Never more than the deposit your customer agreed to</li>
             </ul>
-            <div class="foot"><a class="btn solid" href="https://holdback.co.uk" target="_blank" rel="noopener">Visit holdback.co.uk ↗</a><a class="btn store" href="https://apps.shopify.com/april" target="_blank" rel="noopener">View on the Shopify App Store ↗</a></div>
+            <div class="foot"><a class="btn solid" href="https://holdback.co.uk" target="_blank" rel="noopener">Visit holdback.co.uk ↗</a><a class="btn store" href="https://apps.shopify.com/april" target="_blank" rel="noopener">Shopify App Store ↗</a></div>
           </div>
           <div class="stage" aria-hidden="true">
             <div class="card" id="hbScene">
@@ -480,10 +474,10 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
         <li><em class="mono">STAGE 04</em><h3>Launch, and stay</h3><p>We email everyone who asked to hear about it. After that we keep fixing, improving and answering.</p></li>
       </ol>
       <div class="rules">
-        <div class="rule rv"><em class="mono">PROMISE 01</em><h3>Plain words</h3><p>Your customers read what our apps put in front of them, so it's written the way you'd say it across the counter. No jargon and no small print doing the heavy lifting.</p></div>
-        <div class="rule rv"><em class="mono">PROMISE 02</em><h3>Straight answers</h3><p>Every app's site says what it needs and what it doesn't do. If it isn't right for your shop, we'd rather tell you now than after you've set it up.</p></div>
-        <div class="rule rv"><em class="mono">PROMISE 03</em><h3>Built on Shopify</h3><p>Our apps work with Shopify's own checkout and admin wherever they can, so your orders and your customers stay where you already look for them.</p></div>
-        <div class="rule rv"><em class="mono">PROMISE 04</em><h3>Real people, not a queue</h3><p>Questions go straight to the people who built the app. No scripts and no ticket numbers, just a proper answer.</p></div>
+        <div class="rule rv"><h3>Plain words</h3><p>Your customers read what our apps put in front of them, so it's written the way you'd say it across the counter. No jargon and no small print doing the heavy lifting.</p></div>
+        <div class="rule rv"><h3>Straight answers</h3><p>Every app's site says what it needs and what it doesn't do. If it isn't right for your shop, we'd rather tell you now than after you've set it up.</p></div>
+        <div class="rule rv"><h3>Built on Shopify</h3><p>Our apps work with Shopify's own checkout and admin wherever they can, so your orders and your customers stay where you already look for them.</p></div>
+        <div class="rule rv"><h3>Real people, not a queue</h3><p>Questions go straight to the people who built the app. No scripts and no ticket numbers, just a proper answer.</p></div>
       </div>
     </div>
   </section>
@@ -743,7 +737,7 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
   var STORE_LINKS={ holdback:'https://apps.shopify.com/april', tickbook:'' };
   [].forEach.call(document.querySelectorAll('[data-store]'),function(el){
     var url=STORE_LINKS[el.dataset.store]; if(!url)return;
-    var a=document.createElement('a'); a.className='btn store'; a.href=url; a.target='_blank'; a.rel='noopener'; a.textContent='View on the Shopify App Store ↗';
+    var a=document.createElement('a'); a.className='btn store'; a.href=url; a.target='_blank'; a.rel='noopener'; a.textContent='Shopify App Store ↗';
     el.parentNode.replaceChild(a,el);
   });
 
