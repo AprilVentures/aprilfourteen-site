@@ -102,7 +102,7 @@ h1 .q{background:linear-gradient(100deg,#fff 0%,#b9c2ff 38%,var(--tb) 72%,var(--
 .planet.hb i{background:radial-gradient(circle at 32% 30%,#b8ffe0,var(--hb) 45%,#0b6a43 100%);box-shadow:0 0 26px rgba(61,220,145,.7)}
 .planet.tb i{background:radial-gradient(circle at 32% 30%,#c9fff7,var(--tb) 45%,#0d5f72 100%);box-shadow:0 0 26px rgba(63,214,196,.7)}
 .planet.idea i{background:transparent;border:1.5px dashed var(--muted);width:clamp(16px,3vw,24px)}
-.planet span{white-space:nowrap;text-align:center;line-height:1.25}
+.planet span{white-space:nowrap;text-align:center;line-height:1.25;transition:opacity .35s}
 .planet b{display:block;font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:-.01em}
 .planet small{color:var(--muted);font-size:11px}
 .planet:hover b{text-decoration:underline;text-underline-offset:4px}
@@ -581,7 +581,16 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
       var X=50+x*ct-y*st, Y=50+x*st+y*ct, d=(Math.sin(a)+1)/2;
       p.style.transform='translate('+(X/100*S)+'px,'+(Y/100*S)+'px) translate(-50%,-22%) scale('+(.82+d*.26)+')';
       p.style.zIndex=Math.sin(a)>0?7:3; p.style.opacity=.62+d*.38;
+      p._x=X/100*S; p._y=Y/100*S; p._d=d;
     });
+    /* when two planets pass each other, only the front one keeps its label */
+    var gx=Math.max(96,S*.2), gy=Math.max(44,S*.09);
+    planets.forEach(function(p){p._hide=false});
+    for(var i=0;i<planets.length;i++)for(var j=i+1;j<planets.length;j++){
+      var A=planets[i],B=planets[j];
+      if(Math.abs(A._x-B._x)<gx&&Math.abs(A._y-B._y)<gy){(A._d<B._d?A:B)._hide=true}
+    }
+    planets.forEach(function(p){var l=p.querySelector('span');if(l)l.style.opacity=p._hide?'0':''});
   }
 
   /* smooth, weighted scrolling (falls back to normal scrolling if the library is unavailable) */
