@@ -373,7 +373,7 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
   <div class="wrap">
     <div class="hero">
       <div>
-        <div class="now mono"><span class="dot" aria-hidden="true"></span>Holdback is in review with Shopify</div>
+        <div class="now mono"><span class="dot" aria-hidden="true"></span>Holdback is live on the Shopify App Store</div>
         <h1>
           <span class="ln"><span>We're Aprilfourteen.</span></span>
           <span class="ln"><span>We build apps</span></span>
@@ -395,7 +395,7 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
           </g>
         </svg>
         <div class="core" aria-hidden="true">14</div>
-        <a class="planet hb" href="#holdback" data-rx="24" data-ry="9.5" data-speed="0.26" data-phase="0.6"><i></i><span><b>Holdback</b><small class="mono">IN REVIEW</small></span></a>
+        <a class="planet hb" href="#holdback" data-rx="24" data-ry="9.5" data-speed="0.26" data-phase="0.6"><i></i><span><b>Holdback</b><small class="mono">LIVE</small></span></a>
         <a class="planet tb" href="#tickbook" data-rx="36" data-ry="15" data-speed="0.17" data-phase="3.4"><i></i><span><b>Tickbook</b><small class="mono">COMING SOON</small></span></a>
         <a class="planet idea" href="#contact" data-rx="47" data-ry="20.5" data-speed="0.1" data-phase="5.1"><i></i><span><b>Your idea</b><small class="mono">OPEN ORBIT</small></span></a>
       </div>
@@ -417,7 +417,7 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
       <div class="apps">
         <article class="app hb rv" id="holdback">
           <div class="body">
-            <span class="tag mono"><i></i>In review with Shopify</span>
+            <span class="tag mono"><i></i>Live on the Shopify App Store</span>
             <h3>Holdback</h3>
             <p>Deposits, late fees and damage for hire shops on Shopify. Your customer agrees the terms at checkout, and is told why whenever money is kept.</p>
             <ul>
@@ -425,7 +425,7 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
               <li>Late fees at the press of a button</li>
               <li>Never more than the deposit your customer agreed to</li>
             </ul>
-            <div class="foot"><a class="btn solid" href="https://holdback.co.uk" target="_blank" rel="noopener">Visit holdback.co.uk ↗</a><span class="btn store off" data-store="holdback">Shopify App Store, after review</span></div>
+            <div class="foot"><a class="btn solid" href="https://holdback.co.uk" target="_blank" rel="noopener">Visit holdback.co.uk ↗</a><a class="btn store" href="https://apps.shopify.com/april" target="_blank" rel="noopener">View on the Shopify App Store ↗</a></div>
           </div>
           <div class="stage" aria-hidden="true">
             <div class="card" id="hbScene">
@@ -647,7 +647,7 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
 
   /* ---------- Fourteen, the ship: parks bottom corner, swaps sides per section, says a line ---------- */
   var buddy=document.getElementById('buddy'), ship=document.getElementById('ship'), say=document.getElementById('say');
-  var stops=[['#holdback','R',"Holdback. Deposits and late fees for hire shops."],['#tickbook','L',"Tickbook. Trade accounts, coming soon."],['#approach','R',"Four stages. We don't skip any of them."],['#about','L',"That's Olly. He founded the place."],['#contact','R',"Go on, say hello. We always reply."],['#apps','L',"Two apps in orbit so far."],['.hero','R',"I'm Fourteen. I'll show you round."]]
+  var stops=[['#holdback','R',"Holdback. Live now, for hire shops on Shopify."],['#tickbook','L',"Tickbook. Trade accounts, coming soon."],['#approach','R',"Four stages. We don't skip any of them."],['#about','L',"That's Olly. He founded the place."],['#contact','R',"Go on, say hello. We always reply."],['#apps','L',"Two apps in orbit so far."],['.hero','R',"I'm Fourteen. I'll show you round."]]
     .map(function(s){return {el:document.querySelector(s[0]),side:s[1],line:s[2]}});
   var bx=window.innerWidth-90, by=window.innerHeight-120, cur=null, sayT=null, hideT=null;
   function speak(line){
@@ -740,7 +740,7 @@ header,main,footer{transition:opacity 1.1s var(--ease)}
   /* ---------- Shopify App Store links ----------
      When an app's listing is public, paste its address between the quotes below.
      The dashed placeholder on that app's panel then becomes a live button. */
-  var STORE_LINKS={ holdback:'', tickbook:'' };
+  var STORE_LINKS={ holdback:'https://apps.shopify.com/april', tickbook:'' };
   [].forEach.call(document.querySelectorAll('[data-store]'),function(el){
     var url=STORE_LINKS[el.dataset.store]; if(!url)return;
     var a=document.createElement('a'); a.className='btn store'; a.href=url; a.target='_blank'; a.rel='noopener'; a.textContent='View on the Shopify App Store ↗';
